@@ -1,0 +1,2 @@
+SELECT message_body
+FROM messages
