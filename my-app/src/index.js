@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Home from './Home.jsx'
 
 const App = () => {
     return  (
-   <input />
+       <Home />
     )
 }
 
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.getElementById('root'));

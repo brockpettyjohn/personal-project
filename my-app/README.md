@@ -1,3 +1,17 @@
+# NOTE FROM KYLE
+
+- don't touch the index.html file. They buid and mess with that stuff on the build
+- keep all your work in the src directory
+- navigate into the my-app and run `npm start`
+- from your root run `npm start`.
+- then yo ahve all the services running and you are rolling!
+
+### hook up sockets at stuff and we can go over the rest later.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
