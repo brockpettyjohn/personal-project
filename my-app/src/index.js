@@ -1,12 +1,10 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
 
-
-const App = () => {
-    return  (
-   <input />
-    )
-}
-
-
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);

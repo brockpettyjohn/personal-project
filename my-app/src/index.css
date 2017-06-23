@@ -1,5 +1,28 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.menu-modal{
+  width: 270px;
+  height: 556px;
+  border: solid black 1px;
+  border-radius: 6px;
 }
+
+
+.sidebar-menu{
+  width: 220px;
+  height: 100%;
+  background-color: rgb(77, 57, 75);
+  color: white;
+}
+
+.sidebar-words{
+  margin-left: 15px;
+}
+
+.page-layout-wrapper{
+  display: flex;
+  align-items: row;
+}
+
+/*.message-bar{
+  width: 676px;
+  height: 41px;
+}*/

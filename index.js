@@ -4,7 +4,7 @@ const massive = require('massive')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server, {serveClient: false})
-const controller =  require('./chatController')
+const controller =  require('./server/chatController.js')
 
 users = [];
 connections = [];
@@ -26,8 +26,12 @@ app.get('/user/:email', controller.getUser)
 // sockets setup 
 app.use(express.static(__dirname + '/my-app/build'))
 
-io.on('connection', function(socket){
-  console.log('A user connected');
+io.on('connection', socket =>{
+  console.log('A user connected')
+  
+  socket.on('chat', data => {
+    io.sockets.emit('chat', data);
+  })
 
   // //Send a message after a timeout of 4seconds
   setTimeout(function(){
