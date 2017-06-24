@@ -21,6 +21,13 @@
   color: white;
 }
 
+#team_id_header{
+  width: 220px;
+  height: 60px;
+  border: green solid 1px;
+
+}
+
 .sidebar-words{
   margin-left: 15px;
 }
@@ -28,6 +35,7 @@
 .page-layout-wrapper{
   display: flex;
   align-items: row;
+  height: 100vh;
 }
 
 /*.message-bar{
@@ -37,13 +45,16 @@
 
 .header-base{
   width: 100%;
-  height: 100%;
-  border: solid black 1px;
+  height: 60px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .main-message-view{
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  /*display: flex;
+  align-items: row;*/
 }
 
 .user-name{

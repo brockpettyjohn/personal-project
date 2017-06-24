@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 
 class HeaderSidebar extends Component {
-    constructor(props){
-        super(props);
-//why don't I need to bind this?
-        this.state = { isModalOpen: false}
-        // this.onClick = this.onClick.bind(this)
-    }
+  constructor(props) {
+    super(props);
+    //why don't I need to bind this?
+    this.state = { isModalOpen: false }
+    // this.onClick = this.onClick.bind(this)
+  }
 
 
-    render() {
+  render() {
     return (
-      <div className='sidebar-header'>
+      <div>
         <button onClick={() => this.openModal()}>Open modal</button>
         <div isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
           <div className="current-team-name">Team Name</div>

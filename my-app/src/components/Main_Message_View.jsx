@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import AddMessage from './Message_Bar.jsx';
-import SearchBar from './Search_Bar.jsx';
+// import SearchBar from './Search_Bar.jsx';
 import MessageHeader from './Message_Header.jsx';
 
 class MainMessageView extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       messages: []
@@ -24,14 +24,20 @@ class MainMessageView extends Component {
 
     const message = this.state.messages
         .filter( message => message )
+
+        .map( (message, index) => (
+          <div key={ index }>
+          { message.text }
+          </div> 
+        ) );
        
        
     return (
       <div className='main-message-view'> 
-          <SearchBar searchBar={this.searchBar}/>
+          {/*<SearchBar searchBar={this.searchBar}/>*/}
           <MessageHeader />
+          <div>{ message }</div>
           <AddMessage createMessage={ this.createMessage } />
-          { message }
       </div>
     );
   }

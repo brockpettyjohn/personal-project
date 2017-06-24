@@ -6,17 +6,21 @@ import Channels from './Channels.jsx'
 import DirectMessages from './Direct_Messages.jsx'
 
 class SideBarMenu extends Component {
-    render(){
-      return(
-        <div className='sidebar-menu'>
-            <div className='sidebar-words'>
-                <HeaderSideBar />
-                <AllUnreads />
-                <AllThreads />
-                <Channels />
-                <DirectMessages />
+
+
+    render() {
+        return (
+            <div className='sidebar-menu'>
+                <div className='sidebar-words'>
+                    <div className='team_id_header'>
+                        <HeaderSideBar />
+                    </div>
+                    <AllUnreads />
+                    <AllThreads />
+                    <Channels />
+                    <DirectMessages />
+                </div>
             </div>
-        </div>
         )
     }
 }
