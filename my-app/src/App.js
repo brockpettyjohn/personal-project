@@ -35,7 +35,7 @@ class App extends Component {
           </p> 
         ) );*/
     return (
-      <div className="app"> 
+      <div className="all-menus"> 
         <div className='page-layout-wrapper'>
           <SidebarMenu />
           <MainMessageView />

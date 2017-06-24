@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 const slackMenu = [
-    {
-        name: 'User Name'
-    },
+    // {
+    //     name: 'User Name'
+    // },
     {
         name: 'Set a status'
     },
@@ -23,7 +23,8 @@ const slackMenu = [
 
 class SlackProfileMenu extends Component {
     render(){
-        return (<div>{
+        return (
+        <div>{
             slackMenu.map((item, i) =>{
                 return <p key={i}>{item.name}</p>
                 })

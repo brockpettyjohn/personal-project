@@ -2,22 +2,14 @@ import React, { Component } from 'react'
 
 const switchTeamMenu = [
     {
-        name: 'Apps & integrations'
-    },
-    {
-        name: 'Customize Slack'
-    },
-    {
-        name: 'Statistics'
-    },
-    {
-        name: 'Sign out of DevMountain'
+        name: 'Sign in to another team...'
     }
+    
 ]
 
 class SwitchTeamMenu extends Component {
     render(){
-        return (<div>{
+        return (<div className='switch-team-menu'>{
             switchTeamMenu.map((item, i) =>{
                 return <p key={i}>{item.name}</p>
                 })

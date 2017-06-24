@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddMessage from './Message_Bar.jsx';
 import SearchBar from './Search_Bar.jsx';
+import MessageHeader from './Message_Header.jsx';
 
 class MainMessageView extends Component {
   constructor(props) {
@@ -26,13 +27,11 @@ class MainMessageView extends Component {
        
        
     return (
-      <div> 
+      <div className='main-message-view'> 
           <SearchBar searchBar={this.searchBar}/>
-          
-                    <AddMessage createMessage={ this.createMessage } />
-                    { message }
-                
-        
+          <MessageHeader />
+          <AddMessage createMessage={ this.createMessage } />
+          { message }
       </div>
     );
   }

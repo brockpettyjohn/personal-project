@@ -17,7 +17,8 @@ const currentTeamMenu = [
 
 class CurrentTeamMenu extends Component {
     render(){
-        return (<div>{
+        return (
+        <div className='slack-modal-links'>{
             currentTeamMenu.map((item, i) =>{
                 return <p key={i}>{item.name}</p>
                 })
