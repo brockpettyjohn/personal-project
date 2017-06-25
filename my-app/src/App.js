@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuModal from './components/Menu_Modal.jsx'
+// import MenuModal from './components/Menu_Modal.jsx'
 // import ChannelBoxes from './components/ChannelBoxes.jsx'
 // import AddMessages from "./components/Message_bar.jsx";
 // import SearchBar from './components/Search_Bar.jsx';
@@ -40,7 +40,7 @@ class App extends Component {
           <SidebarMenu />
           <MainMessageView />
         </div>
-        <MenuModal />
+        {/*<MenuModal />*/}
         {/*<SearchBar searchBar={this.searchBar}/>*/}
       </div>
     );

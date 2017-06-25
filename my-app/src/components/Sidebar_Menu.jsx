@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import HeaderSideBar from './Header_Sidebar.jsx'
+// import HeaderSideBar from './Header_Sidebar.jsx'
 import AllUnreads from './All_Unreads.jsx'
 import AllThreads from './All_Threads.jsx'
 import Channels from './Channels.jsx'
 import DirectMessages from './Direct_Messages.jsx'
+import TestModal from './Test_Modal.jsx'
 
 class SideBarMenu extends Component {
 
@@ -13,7 +14,8 @@ class SideBarMenu extends Component {
             <div className='sidebar-menu'>
                 <div className='sidebar-words'>
                     <div className='team_id_header'>
-                        <HeaderSideBar />
+                        <TestModal />
+                        {/*<HeaderSideBar />*/}
                     </div>
                     <AllUnreads />
                     <AllThreads />

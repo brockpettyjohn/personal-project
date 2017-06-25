@@ -8,9 +8,11 @@
   border: solid black 1px;
   border-radius: 6px;
   margin-left: 5px;
-  margin-top: 10px;
+  margin-top: 45px;
   position: absolute;
-  display: none;
+  background-color: white;
+  z-index: 999;
+  /*display: none;*/
 }
 
 
@@ -19,6 +21,7 @@
   height: 100%;
   background-color: rgb(77, 57, 75);
   color: white;
+  
 }
 
 #team_id_header{
@@ -28,8 +31,32 @@
 
 }
 
-.sidebar-words{
+#modal-toggle-header{
+  width: 220px;
+  height: 61px;
+  margin-left: -15px;
+  background-color: rgb(77, 57, 75);
+  border: none;
+  color: white;
+  /*position: fixed;*/
+  margin-top: -8px;
+}
+
+/*.sidebar-words{
   margin-left: 15px;
+}*/
+
+#team-name{
+  font-size: 20px;
+  text-align: left;
+  margin-left: 8px;
+
+}
+
+#user-name{
+  font-size: 14px;
+  text-align: left;
+  margin-left: 8px;
 }
 
 .page-layout-wrapper{
