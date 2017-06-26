@@ -25,7 +25,7 @@ import React, { Component } from "react";
         return (
             <div className="add-message">
               
-                <input 
+                <input className='message-input'
                     onChange={ ( event ) => this.handleInputChange( event )}
                     type='text'
                     value={ this.state.input }

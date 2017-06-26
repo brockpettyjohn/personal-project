@@ -24,7 +24,7 @@ const slackMenu = [
 class SlackProfileMenu extends Component {
     render(){
         return (
-        <div>{
+        <div className='slack-profile-links'>{
             slackMenu.map((item, i) =>{
                 return <p key={i}>{item.name}</p>
                 })

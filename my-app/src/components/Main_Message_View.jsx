@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddMessage from './Message_Bar.jsx';
 // import SearchBar from './Search_Bar.jsx';
 import MessageHeader from './Message_Header.jsx';
+import MessageDisplay from './Message_Display.jsx';
 
 class MainMessageView extends Component {
   constructor() {
@@ -33,12 +34,17 @@ class MainMessageView extends Component {
        
        
     return (
-      <div className='main-message-view'> 
+        <div className='main-message-view'> 
           {/*<SearchBar searchBar={this.searchBar}/>*/}
-          <MessageHeader />
-          <div>{ message }</div>
+          <div className='message-header'>
+            <MessageHeader />
+          </div>
+          <MessageDisplay />
+          <div>
+            { message }
+          </div>
           <AddMessage createMessage={ this.createMessage } />
-      </div>
+        </div>
     );
   }
 }

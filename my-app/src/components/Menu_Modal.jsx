@@ -3,14 +3,18 @@ import SlackProfileMenu from './Slack_Profile_Menu';
 import CurrentTeamMenu from './Current_Team_Menu';
 import SwitchTeamMenu from './Switch_Team_Menu';
 import SlackProfileName from './Slack_Profile_Name.jsx'
+import SlackTeamName from './Slack_Team_Name.jsx'
 
 class MenuModal extends Component {
    render(){
        return (
            <div className='menu-modal'>
-                   <SlackProfileName />
+                   <div><SlackProfileName /></div>
                    <SlackProfileMenu />
-                   <CurrentTeamMenu />
+                    <div>
+                        <SlackTeamName />
+                        <CurrentTeamMenu />
+                    </div>
                    <SwitchTeamMenu />
             </div>
             

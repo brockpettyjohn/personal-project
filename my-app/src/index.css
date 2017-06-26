@@ -2,54 +2,121 @@
   font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
 }
 
+.page-layout-wrapper{
+display: flex;
+align-items: row; 
+}
+
 .menu-modal{
   width: 270px;
   height: 556px;
-  border: solid black 1px;
+  border: solid gray 1px;
   border-radius: 6px;
   margin-left: 5px;
   margin-top: 45px;
-  position: absolute;
+  position: fixed;
   background-color: white;
   z-index: 999;
   /*display: none;*/
 }
 
-
-.sidebar-menu{
-  width: 220px;
-  height: 100%;
-  background-color: rgb(77, 57, 75);
-  color: white;
-  
+#profile-name{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #555459;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  margin-top: 20px;
 }
 
-#team_id_header{
-  width: 220px;
-  height: 60px;
-  border: green solid 1px;
+#profile-handle{
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
 
+.slack-modal-links{
+  border-bottom: solid gray 1px;
+}
+
+.slack-profile-links p{
+  margin-left: 25px;
+}
+
+.slack-modal-links p{
+  margin-left: 25px;
+}
+
+.switch-team-menu p{
+  margin-left: 25px;
+}
+
+#team-name-modal{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #555459;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  border-top: solid gray 1px;
+  padding-top: 20px;
+}
+
+#team-channel{
+  text-align: center;
+  font-size: 14px;
+  color: gray;
 }
 
 #modal-toggle-header{
   width: 220px;
   height: 61px;
-  margin-left: -15px;
+  margin-left: 0px;
   background-color: rgb(77, 57, 75);
   border: none;
   color: white;
-  /*position: fixed;*/
   margin-top: -8px;
+  position: fixed;
 }
 
-/*.sidebar-words{
-  margin-left: 15px;
+/*#modal-toggle-header:hover{
+  color: #4D394B;
+  opacity: .5;
 }*/
 
+.sidebar-menu{
+  width: 220px;
+  height: 100vh;
+}
+.sidebar-words{
+  width: 220px;
+  height: 100vh;
+  background-color: rgb(77, 57, 75);
+  color: gray; 
+  overflow-y: hidden;
+  margin-top: 0px;
+}
+
+.sidebar-words li{
+  list-style-type: none;
+  line-height: 2em;
+  font-size: 16px;
+  margin-left: -20px;
+}
+
+.sidebar-words ul {
+  margin-top: 55px;
+}
+
+h2{
+  font-size: 13px;
+  font-weight: normal;
+}
+
 #team-name{
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   margin-left: 8px;
+  font-weight: 500;
 
 }
 
@@ -57,63 +124,49 @@
   font-size: 14px;
   text-align: left;
   margin-left: 8px;
+  color: gray;
 }
 
-.page-layout-wrapper{
-  display: flex;
-  align-items: row;
-  height: 100vh;
+.quick-switcher{
+  width: 220px;
+  height: 64px;
+  position: fixed;
+  margin-top: -72px;
+  background-color: rgb(77, 57, 75);
+  color: gray;
+  text-align: center;
+  border: none;
+  font-size: 16px;
 }
 
-/*.message-bar{
-  width: 676px;
-  height: 41px;
-}*/
-
-.header-base{
-  width: 100%;
-  height: 60px;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-}
+/*styling for message window starts here*/
 
 .main-message-view{
-  width: 100%;
   height: 100vh;
-  /*display: flex;
-  align-items: row;*/
+  width: 100%;
+  border: solid black 1px;
+  overflow-y: scroll;
 }
 
-.user-name{
-  text-align: center;
+.message-header{
+  height: 61px;
+  width: 100%;
+  border: solid black 1px;
+  position: fixed;
 }
 
-p{
-  margin-left: 20px;
-  font-size: 15px;
-  line-height: 10px;
+.message-display{
+  border: solid black 1px;
+  height: 100vh;
 }
 
-h2{
-  font-weight: 900;
-  color: #555459;
+.add-message{
+  height: 64px;
+  width: 100%;
 }
 
-
-.slack-modal-links{
-  border-top: black solid 1px;
-  border-bottom: black solid 1px;
+.message-input{
+  height: 50px;
+  border-radius: 5px;
 }
 
-#profile-name{
-  font-size: 24px;
-  font-weight: 900;
-  color: #555459;
-  margin-top: 20px;
-}
-
-#profile-handle{
-  font-size: 14px;
-  font-weight: 900;
-  color: #555459;
-}

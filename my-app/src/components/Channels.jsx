@@ -4,7 +4,7 @@ class Channels extends Component {
     render(){
         return(
             <div>
-                Channels
+                CHANNELS
             </div>
         )
     }
