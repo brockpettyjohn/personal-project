@@ -16,7 +16,7 @@ class MainMessageView extends Component {
   }
 //creatMessage is being passed as prop into AddMessages which is later being used in the Message bar jsx
   createMessage( messageText ) {
-    this.setState( { messages: [ { text: messageText, complete: false }, ...this.state.messages ] })
+    this.setState( { messages: [...this.state.messages, { text: messageText, complete: false } ] })
     console.log( this.state )
   }
 
@@ -34,16 +34,22 @@ class MainMessageView extends Component {
        
        
     return (
+          /*<SearchBar searchBar={this.searchBar}/>*/
         <div className='main-message-view'> 
-          {/*<SearchBar searchBar={this.searchBar}/>*/}
           <div className='message-header'>
             <MessageHeader />
           </div>
-          <MessageDisplay />
-          <div>
-            { message }
+          <div className='message-display'>
+            <MessageDisplay />
+            <div className='incoming-messages'>
+              { message }
+            </div>
           </div>
-          <AddMessage createMessage={ this.createMessage } />
+            <div className='message-footer'>
+              
+              <AddMessage createMessage={ this.createMessage } />
+            
+          </div>
         </div>
     );
   }

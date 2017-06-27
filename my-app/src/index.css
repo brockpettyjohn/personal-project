@@ -2,10 +2,10 @@
   font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
 }
 
-.page-layout-wrapper{
+/*.page-layout-wrapper{
 display: flex;
 align-items: row; 
-}
+}*/
 
 .menu-modal{
   width: 270px;
@@ -86,6 +86,7 @@ align-items: row;
 .sidebar-menu{
   width: 220px;
   height: 100vh;
+  display: inline-block;
 }
 .sidebar-words{
   width: 220px;
@@ -143,9 +144,10 @@ h2{
 
 .main-message-view{
   height: 100vh;
-  width: 100%;
   border: solid black 1px;
-  overflow-y: scroll;
+  overflow-y: hidden;
+  display: inline-block;
+  width: calc(100vw - 237px);
 }
 
 .message-header{
@@ -157,16 +159,53 @@ h2{
 
 .message-display{
   border: solid black 1px;
-  height: 100vh;
+  height: 90vh;
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+
+.message-footer{
+  height: 64px;
+  width: 79vw;
+  border: solid black 1px;
+  height: 61px;
+  margin-top: 12px;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
 }
 
 .add-message{
-  height: 64px;
-  width: 100%;
+  width: 75vw;
+  height: 35px;
+  border-radius: 5px;
+  border: solid #bbbdbf 2px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
 }
 
 .message-input{
-  height: 50px;
-  border-radius: 5px;
+  width: 89%;
+  height: 93%;
+  font-size: 15px;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  
+}
+
+.fa-plus{
+  font-size: 20px;
+  color: gray;
+}
+
+.fa-smile-o{
+  color: gray;
+  font-size: 20px;
 }
 

@@ -23,8 +23,9 @@ import React, { Component } from "react";
     render() {
         console.log( this.props );
         return (
-            <div className="add-message">
-              
+            
+            <div className='add-message'>
+                <i className="fa fa-plus" aria-hidden="true"></i>
                 <input className='message-input'
                     onChange={ ( event ) => this.handleInputChange( event )}
                     type='text'
@@ -38,8 +39,9 @@ import React, { Component } from "react";
                     
                 />
                 {/*<button onKeyPress={ () => this.handleKeyPress() }>Send</button>*/}
-            
-            </div>
+                <i className="fa fa-smile-o" aria-hidden="true"></i>
+                </div>
+           
         );
     }
 }

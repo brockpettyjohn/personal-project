@@ -36,10 +36,10 @@ class App extends Component {
         ) );*/
     return (
       <div className="all-menus"> 
-        <div className='page-layout-wrapper'>
+        {/*<div className='page-layout-wrapper'>
+        </div>*/}
           <SidebarMenu />
           <MainMessageView />
-        </div>
         {/*<MenuModal />*/}
         {/*<SearchBar searchBar={this.searchBar}/>*/}
       </div>
