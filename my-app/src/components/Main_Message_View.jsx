@@ -3,6 +3,7 @@ import AddMessage from './Message_Bar.jsx';
 // import SearchBar from './Search_Bar.jsx';
 import MessageHeader from './Message_Header.jsx';
 import MessageDisplay from './Message_Display.jsx';
+import HeaderSearchBlock from './Header_Search_Block.jsx'
 
 class MainMessageView extends Component {
   constructor() {
@@ -38,6 +39,7 @@ class MainMessageView extends Component {
         <div className='main-message-view'> 
           <div className='message-header'>
             <MessageHeader />
+            <HeaderSearchBlock />
           </div>
           <div className='message-display'>
             <MessageDisplay />

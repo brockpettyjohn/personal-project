@@ -4,7 +4,13 @@ import React, { Component } from 'react'
      render(){
          return(
              <div className='header-base'>
-                 Header
+                 <span1>#channel-name</span1>
+                 <div className="header-icons">
+                    <span><i className="fa fa-user-o" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-star-o" aria-hidden="true"></i></span>
+                    <span><i className="fa fa-thumb-tack" aria-hidden="true"></i></span>
+                  </div>
+                  
              </div>
          )
      }
