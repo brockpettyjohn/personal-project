@@ -304,8 +304,12 @@ h2{
   height: 486px;
   margin-top:120px;
   color: #555459;
+  
 }
 
+.create-channel-page span{
+  font-weight: 900;
+}
 .create-channel-title{
   font-size: 34px;
   line-height: 41px;
@@ -351,4 +355,8 @@ h2{
   color: #333;
   border: solid #717274 1px;
   margin-right: 10px;
+}
+
+.create-name-specs{
+  font-size: 12px;
 }

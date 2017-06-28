@@ -1,12 +1,13 @@
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
-const massive = require('massive')
-const app = express()
-const server = require('http').createServer(app)
-const io = require('socket.io')(server, {serveClient: false})
-const controller =  require('./server/chatController.js')
+const massive = require('massive');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {serveClient: false});
+const controller =  require('./chatController.js');
 
 users = [];
+channels = [];
 connections = [];
 
 app.use(bodyParser.json());
@@ -20,10 +21,16 @@ massive({
 });
 
 app.post('/user', controller.create)
+
 app.put('/user/:user_id', controller.update)
+
 app.get('/user/:email', controller.getUser)
 
-// sockets setup 
+app.post('/channels', controller.createChannel)
+
+app.get('/channels/:id', controller.getChannel)
+
+//sockets setup 
 app.use(express.static(__dirname + '/my-app/build'))
 
 io.on('connection', socket =>{
@@ -33,18 +40,15 @@ io.on('connection', socket =>{
     io.sockets.emit('chat', data);
   })
 
-  // //Send a message after a timeout of 4seconds
+  //Send a message after a timeout of 4seconds
   setTimeout(function(){
     socket.send('Sent a message 4seconds after connection!');
   }, 4000);
-  // socket.on('disconnect', function () {
-  //   console.log('A user disconnected');
-  // });
 });
 
 
 
-
+//had server.listen before and changed it to see if the variable definition was the problem
 server.listen(3000, () => {
     console.log('magic listening on 3000')
 })

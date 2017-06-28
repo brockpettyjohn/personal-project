@@ -13,6 +13,7 @@ class CreatePrivateChannel extends Component{
                     </div>
                     <span>Name</span>
                     <input type="text" name="name" defaultValue="e.g.leads"></input>
+                    <div className="create-name-specs">Names must be lowercase, without spaces or periods, and shorter than 22 characters.</div>
                     <span>Purpose</span>
                     <input type="text" name="purpose"></input>
                     <span>Send invites to</span>

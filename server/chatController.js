@@ -28,6 +28,25 @@ create: (req, res) => {
     })
 },
 
+createChannel: (req, res) => {
+    var room = [
+        req.body.room_name
+    ];
+    console.log(room);
+    req.app.get('db').create_channel(room).then(resp => {
+        res.send('room added')
+        console.log(room)
+    })
+},
+
+  getChannel: (req, res) => {
+        req.app.get('db').get_channel_by_id(req.params.id).then(foundChannel =>{
+            res.send(foundChannel);
+        }).catch(err => {
+      res.status(500).send(err)
+    })
+},
+
 
 
 }
