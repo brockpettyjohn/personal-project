@@ -29,13 +29,13 @@ create: (req, res) => {
 },
 
 createChannel: (req, res) => {
-    var room = [
-        req.body.room_name
-    ];
+    
+    var room = req.body.room_name;
+    
     console.log(room);
     req.app.get('db').create_channel(room).then(resp => {
-        res.send('room added')
-        console.log(room)
+        res.json(resp)
+        console.log(resp)
     })
 },
 
@@ -47,6 +47,23 @@ createChannel: (req, res) => {
     })
 },
 
+getAllChannels: (req, res) => {
+        req.app.get('db').get_all_channels().then(foundChannels =>{
+            res.json(foundChannels);
+        }).catch(err => {
+      res.status(500).send(err)
+    })
+},
 
+createMessage: (app, messageData) => {
+    console.log(app.get('db'))
+    const message = messageData.message_body;
+    const sender_id = messageData.sender_id
+    console.log(message);
+    return app.get('db').create_message([message, sender_id]).then(resp => {
+        return resp
+        console.log(resp)
+    })
+},
 
 }
