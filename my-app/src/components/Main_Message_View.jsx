@@ -3,6 +3,7 @@ import AddMessage from './Message_Bar.jsx';
 import MessageHeader from './Message_Header.jsx';
 import MessageDisplay from './Message_Display.jsx';
 import HeaderSearchBlock from './Header_Search_Block.jsx';
+import axios from 'axios';
 import io from 'socket.io-client'
 const socket = io('http://localhost:3030')
 class MainMessageView extends Component {
@@ -17,6 +18,7 @@ class MainMessageView extends Component {
     this.createMessage = this.createMessage.bind(this);
     this.handleUserConnected = this.handleUserConnected.bind(this)
     this.handleChatMessage = this.handleChatMessage.bind(this)
+    this.getMessages = this.getMessages.bind(this)
   }
 
   componentDidMount() {
@@ -26,6 +28,7 @@ class MainMessageView extends Component {
       this.setState({
         user
       })
+      if (!this.state.messages.length) this.getMessages();
     }
     socket.emit('user_connected', this.state.user)
     this.handleUserConnected()
@@ -58,6 +61,17 @@ class MainMessageView extends Component {
     socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user })
   }
 
+getMessages(){
+    axios.get('http://localhost:3030/messages')
+      .then(resp => {
+        this.setState({
+          message: resp.data
+        })
+      })
+      .catch(err=> {
+        console.log('why no messages ? ', err.message)
+      })
+  }
 
   render() {
     console.log(this.state.messages)

@@ -57,6 +57,14 @@ getAllChannels: (req, res) => {
     })
 },
 
+getAllMessages: (req, res) => {
+  req.app.get('db').get_messages().then(foundMessages =>{
+    res.json(foundMessages);
+  }).catch(err => {
+    res.status(500).send(err)
+  })
+},
+
 createMessage: (app, messageData) => {
     const db = app.get('db')
     console.log(db)

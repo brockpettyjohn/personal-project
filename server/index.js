@@ -32,11 +32,11 @@ app.use(cors())
 // });
 
 massive({
-  host: 'pellefant.db.elephantsql.com',
-  port: '5432',
-  database: 'rtbyhlnb',
-  password: 'A0-eWWcExva1BJGSuCMOt7OvKyRvrqWN',
-  user: 'rtbyhlnb'
+  host: config.host,
+  port: config.port,
+  database: config.database,
+  password: config.password,
+  user: config.user
 }).then (db =>{
   app.set('db', db);
 })
@@ -55,6 +55,10 @@ app.post('/channels', controller.createChannel)
 app.get('/channels/:id', controller.getChannel)
 
 app.get('/channels/', controller.getAllChannels)
+
+app.get('/messages/', controller.getAllMessages)
+
+
 // app.use(express.static(__dirname + '/my-app/build'))
 
 // sockets setup 
