@@ -410,3 +410,53 @@ h2{
   padding: 13px;
   
 }
+
+.login-page-wrapper{
+  background: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  color: #555459;
+
+}
+
+.login-page-header{
+  width: 100vw;
+  height: 60px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}
+
+.login-page-header img{
+  margin-left: 20px;
+}
+
+.login-box-wrapper{
+  height: 54vh;
+  width: 100vw;
+  /*background: blue;*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+.login-box{
+display: flex;
+flex-direction: column;
+width: 50vw;
+height: 40vh;
+background-color: white;
+box-shadow: 0 1px 1px rgba(0,0,0,.1);
+align-items: center;
+border-radius: 5px;
+justify-content: space-around;
+}
+
+.login-box input{
+  font-size: 20px;
+  line-height: 50px;
+  width: 64%;
+  border-radius: 4px;
+}

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { BrowserRouter } from 'react-router-dom'
 import router from './router.js'
+// import SignUpPage from './components/Sign_Up_Page.jsx'
 
 
 class App extends Component {

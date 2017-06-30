@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Slack from './../slack.svg'
 
-export default class SignUpPage extends Component {
+
+class SignUpPage extends Component {
     render() {
+        console.log(this.props)
         return (
             <div className='sign-up-page-wrapper'>
                 <div id='slack-logo'>
@@ -12,7 +14,7 @@ export default class SignUpPage extends Component {
                     <div className='main-page-header'>
                     </div>
 
-                    <h1>Sign In</h1>
+                    <h1>Sign Up</h1>
                     <span>First Name</span>
                     <input type="text" name="first name" onChange={this.props.handleInput} value={this.props.first_name} />
                     <span>Last Name</span>
@@ -32,3 +34,4 @@ export default class SignUpPage extends Component {
     }
 }
 
+export default SignUpPage

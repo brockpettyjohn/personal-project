@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 
 class CreatePrivateChannel extends Component {
-    
-   
+
+
 
     render() {
         console.log(this.props)
