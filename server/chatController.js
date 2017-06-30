@@ -63,7 +63,7 @@ createMessage: (app, messageData) => {
     const message = messageData.message_body;
     const sender_id = messageData.sender_id
     console.log(message);
-     db.create_message([message, sender_id]).then(resp => {
+     return db.create_message([message, sender_id]).then(resp => {
         return resp
         console.log(resp)
     })

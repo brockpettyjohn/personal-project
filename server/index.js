@@ -18,20 +18,33 @@ app.use(cors())
 
 
 // massive({
-//   // host: 'localhost',
-//   // port: 5432,
-//   // database: 'brockpettyjohn'
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'brockpettyjohn'
 // }).then (db =>{
 //   app.set('db', db);
 // });
 
-massive(
-  config.database
-).then (db =>{
+// massive(
+//   config.database
+// ).then (db =>{
+//   app.set('db', db);
+// });
+
+massive({
+  host: 'pellefant.db.elephantsql.com',
+  port: '5432',
+  database: 'rtbyhlnb',
+  password: 'A0-eWWcExva1BJGSuCMOt7OvKyRvrqWN',
+  user: 'rtbyhlnb'
+}).then (db =>{
   app.set('db', db);
+})
+.catch(err => {
+  console.log('\n\n DB connect error >> ', err.message)
 });
 
-app.post('/user', controller.createUser)
+// app.post('/user', controller.createUser)
 
 app.put('/user/:user_id', controller.update)
 
