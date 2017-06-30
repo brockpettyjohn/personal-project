@@ -14,83 +14,83 @@ class MainMessageView extends Component {
       user: ''
     }
 
-    this.createMessage = this.createMessage.bind( this );
-    this.handleUserConnected = this.handleUserConnected.bind( this )
-    this.handleChatMessage = this.handleChatMessage.bind( this )
+    this.createMessage = this.createMessage.bind(this);
+    this.handleUserConnected = this.handleUserConnected.bind(this)
+    this.handleChatMessage = this.handleChatMessage.bind(this)
   }
 
-  componentDidMount(){
-      if(!this.state.user){
-        const input = prompt('what is your name is')
-        const user = Number(input)
-        this.setState({
-          user
-        })
-      }
-      socket.emit('user_connected', this.state.user)
-      this.handleUserConnected()
-      this.handleChatMessage()
-      
-      // // socket.on('user_connected', data =>{
-      // //   console.log('this user connected', data)
-      // })
-    }
-    handleUserConnected(){
-       socket.on('user_connected', data =>{
-        console.log('this user connected', data)
+  componentDidMount() {
+    if (!this.state.user) {
+      const input = prompt('what is your name is')
+      const user = (input)
+      this.setState({
+        user
       })
     }
+    socket.emit('user_connected', this.state.user)
+    this.handleUserConnected()
+    this.handleChatMessage()
 
-    handleChatMessage(){
-      
-      socket.on('chat_message', data => {
-        console.log('fired', data)
-        const messages =  this.state.messages.concat([data])
-        this.setState({
-          messages
-        })
+    socket.on('error', data => {
+      console.log('this error happened', data)
+    })
+  }
+  handleUserConnected() {
+    socket.on('user_connected', data => {
+      console.log('this user connected', data)
+    })
+  }
+
+  handleChatMessage() {
+
+    socket.on('chat_message', data => {
+      console.log('fired', data)
+      const messages = this.state.messages.concat([data])
+      this.setState({
+        messages
       })
-    }
-//creatMessage is being passed as prop into AddMessages which is later being used in the Message bar jsx
-  createMessage( messageText ) {
+    })
+  }
+  //creatMessage is being passed as prop into AddMessages which is later being used in the Message bar jsx
+  createMessage(messageText) {
     // this.setState( { messages: [...this.state.messages, { text: messageText, complete: false } ] })
     // console.log( this.state )
-    socket.emit('chat_message', {message_body: messageText, sender_id: this.state.user})
+    socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user })
   }
 
 
   render() {
-console.log(this.state.messages)
+    console.log(this.state.messages)
     const message = this.state.messages
-        .filter( message => message )
+      .filter(message => message)
 
-        .map( (message, index) => (
-          <div key={ index }>
-          {message.sender_id}: { message.message_body }
-          </div> 
-        ) );
-       
-       
+      .map((message, index) => (
+        <div key={index}>
+          {message.sender_id}: {message.message_body}
+        </div>
+      ));
+
+
     return (
-          /*<SearchBar searchBar={this.searchBar}/>*/
-        <div className='main-message-view'> 
-          <div className='message-header'>
-            <MessageHeader />
-            <HeaderSearchBlock />
-          </div>
-          <div className='message-display'>
-            <MessageDisplay />
-            <div className='incoming-messages'>
-              { message }
+      /*<SearchBar searchBar={this.searchBar}/>*/
+      <div className='main-message-view'>
+        <div className='message-header'>
+          <MessageHeader />
+          <HeaderSearchBlock />
+        </div>
+        <div className='message-display'>
+          <MessageDisplay />
+          <div className='incoming-messages'>
+            {message}
 
-            </div>
-          </div>
-            <div className='message-footer'>
-              
-              <AddMessage createMessage={ this.createMessage } />
-            
           </div>
         </div>
+        <div className='message-footer'>
+
+          <AddMessage createMessage={this.createMessage} />
+
+        </div>
+      </div>
     );
   }
 }

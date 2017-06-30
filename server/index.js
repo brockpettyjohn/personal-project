@@ -6,6 +6,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {serveClient: false});
 const controller =  require('./chatController.js');
+const config = require('./config.js')
 
 
 users = [];
@@ -16,15 +17,21 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
-massive({
-  host: 'localhost',
-  port: 5432,
-  database: 'brockpettyjohn'
-}).then (db =>{
+// massive({
+//   // host: 'localhost',
+//   // port: 5432,
+//   // database: 'brockpettyjohn'
+// }).then (db =>{
+//   app.set('db', db);
+// });
+
+massive(
+  config.database
+).then (db =>{
   app.set('db', db);
 });
 
-app.post('/user', controller.create)
+app.post('/user', controller.createUser)
 
 app.put('/user/:user_id', controller.update)
 
@@ -51,7 +58,10 @@ io.on('connection', socket =>{
     controller.createMessage(app, data).then(resp => {
      socket.broadcast.emit('chat_message', data)
     socket.emit('chat_message', data)
-    })
+  })
+  .catch(err =>{
+    socket.emit('error', err.message)
+  })
     console.log(data)
     
   })

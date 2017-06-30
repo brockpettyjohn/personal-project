@@ -1,5 +1,7 @@
+const app = require('./index')
+
 module.exports={
-create: (req, res) => {
+createUser: (req, res) => {
     var user = [
         req.body.first_name,
         req.body.last_name,
@@ -56,11 +58,12 @@ getAllChannels: (req, res) => {
 },
 
 createMessage: (app, messageData) => {
-    console.log(app.get('db'))
+    const db = app.get('db')
+    console.log(db)
     const message = messageData.message_body;
     const sender_id = messageData.sender_id
     console.log(message);
-    return app.get('db').create_message([message, sender_id]).then(resp => {
+     db.create_message([message, sender_id]).then(resp => {
         return resp
         console.log(resp)
     })

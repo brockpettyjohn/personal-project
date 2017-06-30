@@ -22,7 +22,7 @@ class CreatePrivateChannel extends Component {
                     <span>Purpose</span>
                     <input type="text" name="purpose"></input>
                     <span>Send invites to</span>
-                    <input type="text" name="invites" defaultValue="Search by name" />
+                    <input type="text" name="invites" placeholder="Search by name" />
                     <div className="create-channel-buttons">
                         <button id="cancel">Cancel</button>
                         <button id="create" onClick={this.props.createChannel}>Create Channel</button>
