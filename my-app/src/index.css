@@ -2,6 +2,12 @@
   font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
 }
 
+.main-message-page-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
 
 .menu-modal{
   width: 270px;
@@ -40,6 +46,12 @@
 .channel-add:hover{
   color: white;
 }
+
+#new-channels{
+  font-size: 16px;
+
+}
+
 
 .direct-message-add span{
     font-size: 9px;
@@ -156,10 +168,13 @@ h2{
 
 .main-message-view{
   height: 100vh;
+  width: calc(100vw - 240px);
   border: solid black 1px;
   overflow-y: hidden;
-  display: inline-block;
+  display: flex;
   width: calc(100vw - 237px);
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .message-header{
@@ -170,8 +185,13 @@ h2{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  margin-top: -658px;  
 }
+
+.message-display-header{
+color: white;
+}
+
 
 .header-base{
   font-weight: 900;
@@ -229,12 +249,18 @@ h2{
 }
 
 .message-display{
-  /*border: solid black 1px;*/
+  border: solid black 1px;
   height: 90vh;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   
+}
+
+.incoming-messages{
+  padding-bottom: 60px;
+  /*height: 100vh;*/
+  width: 88vw;
 }
 
 .message-footer{
@@ -365,7 +391,11 @@ h2{
 
 .sign-up-page-wrapper{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
+  align-items: center;
 }
 
 .sign-up-page{
@@ -373,32 +403,48 @@ h2{
   flex-direction: column;
   justify-content: flex-end;
   width: 60vw;
-  height: 50vh;
-  
+  height: 64vh;
+  background-color: white;
+  margin-top: 75px;
+  border-radius: 4px;
+  color: #555459;
+}
+
+.sign-up-page-header{
+  background-color: white;
+  height: 60px;
+  width: 100vw;
 }
 
 #slack-logo{
   width: 103px;
   height: auto;
+  margin: 15px;
   
+}
+
+.sign-up-page h1{
+ margin: auto;
+ padding-top: 54px;
 }
 
 .sign-up-page input{
   border-radius: 4px;
   height: 5%;
-  
+  width: 70%;
+  margin: auto;
 }
 
 .sign-up-page span{
   font-size: 18px;
-  color: #717274;;
-
+  color: #717274;
+  margin-left: 87px;
 }
 
 #sign_up_page_buttons{
   display: flex;
   justify-content: flex-end;
-  width: 60vw;
+  width: 50vw;
   border-radius: 4px;
   font-size: 20px;
   padding: 13px;
@@ -432,8 +478,18 @@ h2{
   margin-left: 20px;
 }
 
+.login-page-header button{
+  border: #717274 solid 2px;
+  box-shadow: none;
+  border-radius: 4px;
+  height: 40px;
+  width: 100px;
+  background-color: white;
+  margin: 10px;
+}
+
 .login-box-wrapper{
-  height: 54vh;
+  height: 64vh;
   width: 100vw;
   /*background: blue;*/
   display: flex;
@@ -446,7 +502,7 @@ h2{
 display: flex;
 flex-direction: column;
 width: 50vw;
-height: 40vh;
+height: 50vh;
 background-color: white;
 box-shadow: 0 1px 1px rgba(0,0,0,.1);
 align-items: center;
@@ -459,4 +515,38 @@ justify-content: space-around;
   line-height: 50px;
   width: 64%;
   border-radius: 4px;
+  padding-left: 15px;
+}
+
+.login-box button{
+  background-color: #2ab27b;
+  border-radius: 4px;
+  box-shadow: none;
+  color: white;
+  width: 348px;
+  height: 56px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.message-output{
+ margin-left: 50px;
+ display: flex;
+ flex-direction: row;
+}
+
+#sender{
+  font-size: 15px;
+  font-weight: 900;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  color: #2C2D30;
+  margin-left: 10px;
+}
+
+#message{
+  font-size: 15px;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  margin-bottom: 10px;
+  color: #555459;
+  margin-left: 10px;
 }

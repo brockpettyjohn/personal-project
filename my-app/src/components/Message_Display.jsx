@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 class MessageDisplay extends Component{
      render(){
          return(
-             <div>
-                 Message Display
+             <div className='message-display-header'>
+              message
              </div>
          )
      }

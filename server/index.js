@@ -59,6 +59,8 @@ app.get('/channels/', controller.getAllChannels)
 
 app.get('/messages/', controller.getAllMessages)
 
+app.get('/user_login/', controller.userLogin)
+
 
 // app.use(express.static(__dirname + '/my-app/build'))
 

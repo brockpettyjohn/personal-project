@@ -6,7 +6,7 @@ class MessagePage extends Component {
   render() {
 
     return (
-      <div>
+      <div className='main-message-page-wrapper'>
         <SidebarMenu />
         <MainMessageView />
       </div>

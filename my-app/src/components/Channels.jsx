@@ -74,7 +74,7 @@ class Channels extends Component {
                         <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
                         <i className="fa fa-plus fa-stack-1x" aria-hidden="true"></i>
                     </span>
-                  {channels}
+                  <div id='new-channels'>{channels}</div>
                 </div>
             </div>
         )

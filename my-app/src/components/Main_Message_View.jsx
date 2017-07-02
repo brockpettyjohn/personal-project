@@ -5,6 +5,8 @@ import MessageDisplay from './Message_Display.jsx';
 import HeaderSearchBlock from './Header_Search_Block.jsx';
 import axios from 'axios';
 import io from 'socket.io-client'
+import Slack1 from './../slack-1.svg'
+
 const socket = io('http://localhost:3030')
 class MainMessageView extends Component {
   constructor(props) {
@@ -61,14 +63,14 @@ class MainMessageView extends Component {
     socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user })
   }
 
-getMessages(){
+  getMessages() {
     axios.get('http://localhost:3030/messages')
       .then(resp => {
         this.setState({
           message: resp.data
         })
       })
-      .catch(err=> {
+      .catch(err => {
         console.log('why no messages ? ', err.message)
       })
   }
@@ -79,25 +81,27 @@ getMessages(){
       .filter(message => message)
 
       .map((message, index) => (
-        <div key={index}>
-          {message.sender_id}: {message.message_body}
+        <div className='message-output' key={index}>
+          <div className='message-image'>
+            <img src={Slack1} />
+          </div>
+          <div className='message-words'>
+            <div id='sender'>{message.sender_id}</div>
+            <div id='message'>{message.message_body}</div>
+          </div>
         </div>
       ));
 
 
     return (
-      /*<SearchBar searchBar={this.searchBar}/>*/
       <div className='main-message-view'>
         <div className='message-header'>
           <MessageHeader />
           <HeaderSearchBlock />
         </div>
-        <div className='message-display'>
-          <MessageDisplay />
-          <div className='incoming-messages'>
-            {message}
-
-          </div>
+        <MessageDisplay />
+        <div className='incoming-messages'>
+          {message}
         </div>
         <div className='message-footer'>
 
