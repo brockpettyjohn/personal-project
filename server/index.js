@@ -7,6 +7,8 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server, { serveClient: false });
 const controller = require('./chatController.js');
 const config = require('./config.js')
+const passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
 
 users = [];
@@ -14,7 +16,21 @@ channels = [];
 connections = [];
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 
 // massive({
@@ -45,6 +61,12 @@ massive({
     console.log('\n\n DB connect error >> ', err.message)
   });
 
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/message_page',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
+
 app.post('/user', controller.createUser)
 
 app.put('/user/:user_id', controller.update)
@@ -59,7 +81,8 @@ app.get('/channels/', controller.getAllChannels)
 
 app.get('/messages/', controller.getAllMessages)
 
-app.get('/user_login/', controller.userLogin)
+app.post('/user_login/', controller.userLogin)
+
 
 
 // app.use(express.static(__dirname + '/my-app/build'))

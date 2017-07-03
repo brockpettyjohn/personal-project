@@ -3,8 +3,8 @@ class SlackProfileName extends Component{
     render(){
         return(
             <div className='user-name'>
-                <div id='profile-name'>User Name</div>
-                <div id='profile-handle'>@username</div>
+                <div id='profile-name'>Brock Pettyjohn</div>
+                <div id='profile-handle'>@brockpettyjohn</div>
             </div>
         )
     }

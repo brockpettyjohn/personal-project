@@ -31,8 +31,8 @@ class TestModal extends Component {
       <div>
         <WarningBanner warn={this.state.showWarning} />
         <button id='modal-toggle-header' onClick={this.handleToggleClick}>
-          <div id='team-name'>Team Name</div>
-          <div id='user-name'>User Name</div>
+          <div id='team-name'>Pettyjohn Brothers</div>
+          <div id='user-name'>Brock Pettyjohn</div>
           {this.state.showWarning}
         </button>
       </div>

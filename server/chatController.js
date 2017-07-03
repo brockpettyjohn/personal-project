@@ -52,16 +52,26 @@ module.exports = {
 
 
     },
-    
+
     userLogin: (req, res) => {
-        req.app.get('db').user_login([req.body.email, req.body.password]).then(validUser => {        
-            console.log(validUser)
-            res.send(validUser)
-        }).catch(function(err){
+        // req.app.get('db').get_user_by_email(req.body.email)
+        //     .then(validUser => {
+        //         console.log(validUser)
+        //         if (validUser.email === req.body.email) {
+        //             if (validUser.password === req.body.password) {
+        //                 console.log("thumbs up")
+        //             }
+        //         }
+        //         res.send(validUser)
+        //     })
+        req.login(user, function (err) {
+            if (err) { return next(err); }
+            return res.redirect('/user/' + req.user.user_name);
+        }).catch(function (err) {
             res.status(500).send(err)
         })
     },
-    
+
     update: (req, res) => {
         req.app.get('db').update_user([req.params.user_id, req.body.first_name, req.body.last_name, req.body.email, req.body.password]).then(updatedUser => {
             console.log(updatedUser)
@@ -72,8 +82,8 @@ module.exports = {
     },
     getUser: (req, res) => {
         req.app.get('db').get_user_by_email(req.params.email).then(foundEmail => {
-            if(foundEmail.password === req.params.email)
-           return res.send(foundUser);
+            if (foundEmail.password === req.params.email)
+                return res.send(foundUser);
         }).catch(err => {
             res.status(500).send(err)
         })

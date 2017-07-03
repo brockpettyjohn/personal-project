@@ -3,8 +3,8 @@ class SlackTeamName extends Component{
     render(){
         return(
             <div className='user-name'>
-                <div id='team-name-modal'>Team Name</div>
-                <div id='team-channel'>team.name.com</div>
+                <div id='team-name-modal'>Pettyjohn Brothers</div>
+                <div id='team-channel'>pettyjohn.bros.com</div>
             </div>
         )
     }
