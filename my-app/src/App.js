@@ -1,23 +1,23 @@
+import React, { Component } from 'react';
+// import SidebarMenu from './components/Sidebar_Menu.jsx';
+// import MainMessageView from './components/Main_Message_View.jsx'
 
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+import { BrowserRouter, Route } from 'react-router-dom'
+import router from './router.js'
+// import SignUpPage from './components/Sign_Up_Page.jsx'
 
-app.get('/', function(req, res){
-  res.sendfile('index.html');
-});
 
-io.on('connection', function(socket){
-  console.log('A user connected');
+class App extends Component {
 
-  //Send a message after a timeout of 4seconds
-  setTimeout(function(){
-    socket.send('Sent a message 4seconds after connection!');
-  }, 4000);
-  socket.on('disconnect', function () {
-    console.log('A user disconnected');
-  });
-});
-http.listen(3000, function(){
-  console.log('listening on 3000');
-});
+  render() {
+
+    
+    return (
+      <div className="all-menus">
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export default App;
