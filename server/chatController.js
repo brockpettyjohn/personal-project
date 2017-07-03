@@ -125,8 +125,8 @@ module.exports = {
     },
 
     createMessage: (app, messageData) => {
+        console.log(app)
         const db = app.get('db')
-        console.log(db)
         const message = messageData.message_body;
         const sender_id = messageData.sender_id
         console.log(message);
@@ -134,6 +134,6 @@ module.exports = {
             return resp
             console.log(resp)
         })
-    },
+    }
 
 }
