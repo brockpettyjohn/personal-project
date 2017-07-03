@@ -1,5 +1,552 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.all-menus{
+  font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+}
+
+.main-message-page-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+.menu-modal{
+  width: 270px;
+  height: 556px;
+  border: solid gray 1px;
+  border-radius: 6px;
+  margin-left: 5px;
+  margin-top: 45px;
+  position: fixed;
+  background-color: white;
+  z-index: 999;
+  /*display: none;*/
+}
+
+#profile-name{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #555459;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  margin-top: 20px;
+}
+
+#profile-handle{
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.channel-add span{
+    font-size: 9px;
+    margin-left: 95px;
+    margin-bottom: 4px;
+}
+
+.channel-add:hover{
+  color: white;
+}
+
+#new-channels{
+  font-size: 16px;
+
+}
+
+
+.direct-message-add span{
+    font-size: 9px;
+    margin-left: 44px;
+    margin-bottom: 4px;
+}
+
+.direct-message-add:hover{
+  color:white;
+}
+
+.slack-modal-links{
+  border-bottom: solid gray 1px;
+}
+
+.slack-profile-links p{
+  margin-left: 25px;
+}
+
+.slack-modal-links p{
+  margin-left: 25px;
+}
+
+.switch-team-menu p{
+  margin-left: 25px;
+}
+
+#team-name-modal{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #555459;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  border-top: solid gray 1px;
+  padding-top: 20px;
+}
+
+#team-channel{
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+#modal-toggle-header{
+  width: 220px;
+  height: 61px;
+  margin-left: 0px;
+  background-color: rgb(77, 57, 75);
+  border: none;
+  color: white;
+  margin-top: -4px;
+  position: fixed;
+}
+
+
+.sidebar-menu{
+  width: 220px;
+  height: 100vh;
+  display: inline-block;
+}
+.sidebar-words{
+  width: 220px;
+  height: 100vh;
+  background-color: rgb(77, 57, 75);
+  color: gray; 
+  overflow-y: hidden;
+  margin-top: 0px;
+}
+
+.sidebar-words li{
+  list-style-type: none;
+  line-height: 2em;
+  font-size: 16px;
+  margin-left: -20px;
+}
+
+.sidebar-words ul {
+  margin-top: 55px;
+}
+
+h2{
+  font-size: 13px;
+  font-weight: normal;
+}
+
+#team-name{
+  font-size: 18px;
+  text-align: left;
+  margin-left: 8px;
+  font-weight: 500;
+
+}
+
+#user-name{
+  font-size: 14px;
+  text-align: left;
+  margin-left: 8px;
+  color: gray;
+}
+
+.quick-switcher{
+  width: 220px;
+  height: 64px;
+  position: fixed;
+  margin-top: -72px;
+  background-color: rgb(77, 57, 75);
+  color: gray;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+}
+
+/*styling for message window starts here*/
+
+.main-message-view{
+  height: 100vh;
+  width: calc(100vw - 240px);
+  border: solid black 1px;
+  overflow-y: hidden;
+  display: flex;
+  width: calc(100vw - 237px);
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.message-header{
+  height: 61px;
+  width: calc(100vw - 240px);
+  border: solid #bbbdbf 1px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -648px;  
+}
+
+.message-display-header{
+color: white;
+}
+
+
+.header-base{
+  font-weight: 900;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 61px;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+
+}
+
+.header-base span1{
+  margin-left: 20px;
+}
+
+.header-icons{
+  display: flex;
+  flex-direction: row;
+  width: 391px;
+}
+
+.header-icons span{
+  border-right: solid #bbbdbf 1px;
+  width: 60px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  color: #bbbdbf;
+  margin-bottom: 0px;
+}
+
+.header-search-block{
+  width: 360px;
+  display: flex;
+  align-items: center;
+}
+
+
+.header-search-icons{
+  width: 391px;
+  color: #bbbdbf;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.header-search-icons input{
+  width: 170px;
+  height: 34px;
+  border-radius: 5px;
+  color: rgba(113,114,116,.5);
+  border: solid 1px;
+}
+
+.message-display{
+  border: solid black 1px;
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+
+.incoming-messages{
+  padding-bottom: 60px;
+  /*height: 100vh;*/
+  width: 88vw;
+}
+
+.message-footer{
+  height: 64px;
+  width: 79vw;
+  /*border: solid black 1px;*/
+  height: 61px;
+  margin-top: 12px;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-message{
+  width: 75vw;
+  height: 35px;
+  border-radius: 5px;
+  border: solid #bbbdbf 2px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message-input{
+  width: 89%;
+  height: 94%;
+  font-size: 15px;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+
+}
+
+.add-message i{
+  font-size: 20px;
+  color: #bbbdbf;
+  width: 10px;
+}
+
+.fa-smile-o{
+  color: #bbbdbf;
+  font-size: 20px;
+}
+
+/*styling for channel creation page start here*/
+
+.create-channel-page{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  border: solid black 1px;
+  margin-top: -67px;
+  margin-left: -11px;
+}
+
+.create-channel-page form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 18px;
+  width: 640px;
+  height: 486px;
+  margin-top:120px;
+  color: #555459;
+  
+}
+
+.create-channel-page span{
+  font-weight: 900;
+}
+.create-channel-title{
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 900;
+  color: #2C2D30;
+}
+
+.create-channel-description{
+    font-size: .9rem;
+    line-height: 1.25rem;
+    color: #717274;
+    margin-top: 1rem;
+}
+
+.create-channel-page input{
+  border-radius: 4px;
+  color: #717274;;
+  height: 50px;
+  border: solid 1px;
+}
+
+.create-channel-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.create-channel-buttons button{
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 13px;
+}
+
+#create{
+    background-color: #717274!important;
+    color: #fff!important;
+    opacity: .35;
+}
+
+#cancel{
+  background-color: #f5f5f5;
+  color: #333;
+  border: solid #717274 1px;
+  margin-right: 10px;
+}
+
+.create-name-specs{
+  font-size: 12px;
+}
+
+/*landing page styling*/
+
+.sign-up-page-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: whitesmoke;
+  align-items: center;
+}
+
+.sign-up-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 60vw;
+  height: 64vh;
+  background-color: white;
+  margin-top: 75px;
+  border-radius: 4px;
+  color: #555459;
+}
+
+.sign-up-page-header{
+  background-color: white;
+  height: 60px;
+  width: 100vw;
+}
+
+#slack-logo{
+  width: 103px;
+  height: auto;
+  margin: 15px;
+  
+}
+
+.sign-up-page h1{
+ margin: auto;
+ padding-top: 54px;
+}
+
+.sign-up-page input{
+  border-radius: 4px;
+  height: 5%;
+  width: 70%;
+  margin: auto;
+}
+
+.sign-up-page span{
+  font-size: 18px;
+  color: #717274;
+  margin-left: 87px;
+}
+
+#sign_up_page_buttons{
+  display: flex;
+  justify-content: flex-end;
+  width: 50vw;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 13px;
+}
+
+#sign_up_page_buttons button{
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 13px;
+  
+}
+
+.login-page-wrapper{
+  background: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  color: #555459;
+
+}
+
+.login-page-header{
+  width: 100vw;
+  height: 60px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}
+
+.login-page-header img{
+  margin-left: 20px;
+}
+
+.login-page-header button{
+  border: #717274 solid 2px;
+  box-shadow: none;
+  border-radius: 4px;
+  height: 40px;
+  width: 100px;
+  background-color: white;
+  margin: 10px;
+}
+
+.login-box-wrapper{
+  height: 64vh;
+  width: 100vw;
+  /*background: blue;*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+.login-box{
+display: flex;
+flex-direction: column;
+width: 50vw;
+height: 50vh;
+background-color: white;
+box-shadow: 0 1px 1px rgba(0,0,0,.1);
+align-items: center;
+border-radius: 5px;
+justify-content: space-around;
+}
+
+.login-box input{
+  font-size: 20px;
+  line-height: 50px;
+  width: 64%;
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+.login-box button{
+  background-color: #2ab27b;
+  border-radius: 4px;
+  box-shadow: none;
+  color: white;
+  width: 348px;
+  height: 56px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.message-output{
+ margin-left: 50px;
+ display: flex;
+ flex-direction: row;
+}
+
+#sender{
+  font-size: 15px;
+  font-weight: 900;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  color: #2C2D30;
+  margin-left: 10px;
+}
+
+#message{
+  font-size: 15px;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  margin-bottom: 10px;
+  color: #555459;
+  margin-left: 10px;
 }
