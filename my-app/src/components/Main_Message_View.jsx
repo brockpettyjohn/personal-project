@@ -25,7 +25,7 @@ class MainMessageView extends Component {
 
   componentDidMount() {
     if (!this.state.user) {
-      const input = prompt('what is your name is')
+      const input = prompt('sockets are working')
       const user = (input)
       this.setState({
         user
