@@ -16,7 +16,9 @@ class LogInPage extends Component {
     switchToMessages(e){
         e.preventDefault();
         window.location.assign('/message_page')
-    }   
+    } 
+
+    
     render() {
         return (
             <div className='login-page-wrapper'>
