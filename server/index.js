@@ -49,9 +49,7 @@ passport.use(new LocalStrategy(
 
 massive(config.database).then(db => {
   app.set('db', db);
-  // console.log(app.settings)
-})
-  .catch(err => {
+}).catch(err => {
     console.log('\n\n DB connect error >> ', err.message)
   });
 
