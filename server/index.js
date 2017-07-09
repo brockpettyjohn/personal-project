@@ -77,6 +77,8 @@ app.get('/messages/', controller.getAllMessages)
 
 app.post('/user_login/', controller.userLogin)
 
+app.get('/message_page/:id', controller.getMessagesByConvoId )
+
 
 
 // app.use(express.static(__dirname + '/my-app/build'))

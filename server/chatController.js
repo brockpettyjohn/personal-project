@@ -134,6 +134,14 @@ module.exports = {
             return resp
             console.log(resp)
         })
+    },
+
+    getMessagesByConvoId: (req, res) => {
+        req.app.get('db').get_messages_by_convo_id(req.params.conversation_id).then(foundMessages => {
+            res.json(foundMessages);
+        }).catch(err => {
+            res.status(500).send(err)
+        })
     }
 
 }

@@ -14,7 +14,8 @@ class MainMessageView extends Component {
 
     this.state = {
       messages: [],
-      user: ''
+      user: '',
+      id: ''
     }
 
     this.createMessage = this.createMessage.bind(this);
@@ -57,14 +58,15 @@ class MainMessageView extends Component {
     })
   }
   //creatMessage is being passed as prop into AddMessages which is later being used in the Message bar jsx
-  createMessage(messageText) {
+ createMessage(messageText) {
     // this.setState( { messages: [...this.state.messages, { text: messageText, complete: false } ] })
-    // console.log( this.state )
-    socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user })
+    console.log( this.state )
+    socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user, conversation_id: //this is where I am having trouble know what to put })
   }
 
   getMessages() {
-    axios.get('http://localhost:3030/messages')
+    // axios.get('http://localhost:3030/messages') this is the original working version
+     axios.get('http://localhost:3030/message_page/:id')
       .then(resp => {
         this.setState({
           message: resp.data
