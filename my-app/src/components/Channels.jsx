@@ -3,7 +3,7 @@ import CreatePrivateChannel from './Create_Private_Channel.jsx'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-function WarningBanner(props) {
+function CreateChannelModal(props) {
   if (!props.warn) {
     return null;
   }
@@ -61,17 +61,17 @@ class Channels extends Component {
         })
     }
 
-    getMessagesById(e){
-      axios.get('http://localhost:3030/messages/:id').then(resp => {
+    // getMessagesById(e){
+    //   axios.get('http://localhost:3030/messages/:id').then(resp => {
 
-      })
-    }
+    //   })
+    // }
 
     
     render(){
       const channels = this.state.channels.map((channel, i) =>{
         return (
-            <Link to ={`/message_page/${channel.id}`}><div key={i}>
+            <Link to ={`/messages/${channel.id}`} style={{textDecoration:'none'}}><div key={i}>
               {channel.room_name}
             </div>
             </Link>
@@ -79,7 +79,7 @@ class Channels extends Component {
       })
         return(
             <div>
-                <WarningBanner handleInput= {this.handleInput} newChannel={this.state.newChannel} warn={this.state.showWarning} createChannel = {this.createChannel} />
+                <CreateChannelModal handleInput= {this.handleInput} newChannel={this.state.newChannel} warn={this.state.showWarning} createChannel = {this.createChannel} />
                 <div className='channel-add' onClick={this.handleToggleClick}>
                     CHANNELS
                     <span className='fa-stack'>

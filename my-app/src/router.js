@@ -21,7 +21,7 @@ export const routes = [
         exact: true,
     },
     {
-        path: '/message_page/:id',
+        path: '/messages/:id',
         component: MainMessageView, //no really sure what goes here
         exact: true
     }

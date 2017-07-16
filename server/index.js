@@ -77,7 +77,7 @@ app.get('/messages/', controller.getAllMessages)
 
 app.post('/user_login/', controller.userLogin)
 
-app.get('/message_page/:id', controller.getMessagesByConvoId )
+app.get('/messages/:id', controller.getMessagesByConvoId )
 
 
 
