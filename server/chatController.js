@@ -125,15 +125,26 @@ module.exports = {
     },
 
     createMessage: (app, messageData) => {
+        console.log(app)
         const db = app.get('db')
-        console.log(db)
         const message = messageData.message_body;
-        const sender_id = messageData.sender_id
+        const sender_id = messageData.sender_id;
+        const convoId = messageData.conversation_id;
         console.log(message);
-        return db.create_message([message, sender_id]).then(resp => {
+        return db.create_message([message, sender_id, convoId ]).then(resp => {
             return resp
             console.log(resp)
         })
     },
+
+    getMessagesByConvoId: (req, res) => {
+        console.log(req.params.id)
+        req.app.get('db').get_messages_by_convo_id(req.params.id).then(foundMessages => {
+            
+            res.json(foundMessages);
+        }).catch(err => {
+            res.status(500).send(err)
+        })
+    }
 
 }

@@ -47,15 +47,9 @@ passport.use(new LocalStrategy(
 //   app.set('db', db);
 // });
 
-massive({
-  host: config.host,
-  port: config.port,
-  database: config.database,
-  password: config.password,
-  user: config.user
-}).then(db => {
+massive(config.database).then(db => {
   app.set('db', db);
-  console.log(app.settings)
+  // console.log(app.settings)
 })
   .catch(err => {
     console.log('\n\n DB connect error >> ', err.message)
@@ -82,6 +76,8 @@ app.get('/channels/', controller.getAllChannels)
 app.get('/messages/', controller.getAllMessages)
 
 app.post('/user_login/', controller.userLogin)
+
+app.get('/messages/:id', controller.getMessagesByConvoId )
 
 
 

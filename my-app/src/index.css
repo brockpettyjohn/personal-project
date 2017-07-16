@@ -49,8 +49,15 @@
 
 #new-channels{
   font-size: 16px;
+  color: #555459;
 
 }
+
+#new-channels:link{
+  color: #555459;
+
+}
+
 
 
 .direct-message-add span{
@@ -185,7 +192,7 @@ h2{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: -749px;  
+  margin-top: -750px;  
 }
 
 .message-display-header{
@@ -201,7 +208,7 @@ color: white;
   justify-content: space-around;
   height: 61px;
   font-family: Slack-Lato,appleLogo,sans-serif;
-
+  background-color: white;
 }
 
 .header-base span1{
@@ -228,6 +235,7 @@ color: white;
   width: 360px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
 
