@@ -14,7 +14,7 @@ import React, { Component } from "react";
 
     handleKeyPress() {
         //the createMessage function from App is being used from the AddMessage component via props
-        this.props.createMessage( this.state.input)//<---is coming from the the state set above in the this.state = { input: ""}
+        this.props.createMessage( this.state.input )//<---is coming from the the state set above in the this.state = { input: ""}
         this.setState({
             input: ''
         })

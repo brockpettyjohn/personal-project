@@ -13,7 +13,7 @@ const passport = require('passport')
 
 users = [];
 channels = [];
-connections = [];
+// connections = [];
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -47,15 +47,8 @@ passport.use(new LocalStrategy(
 //   app.set('db', db);
 // });
 
-massive({
-  host: config.host,
-  port: config.port,
-  database: config.database,
-  password: config.password,
-  user: config.user
-}).then(db => {
+massive(config.url).then(db => {
   app.set('db', db);
-  console.log(app.settings)
 })
   .catch(err => {
     console.log('\n\n DB connect error >> ', err.message)
@@ -82,6 +75,8 @@ app.get('/channels/', controller.getAllChannels)
 app.get('/messages/', controller.getAllMessages)
 
 app.post('/user_login/', controller.userLogin)
+
+app.get('/messages/:id', controller.getMessagesByConvoId )
 
 
 
@@ -113,10 +108,6 @@ io.on('connection', socket => {
     socket.broadcast.emit('chat', data);
   })
 
-  //Send a message after a timeout of 4seconds
-  setTimeout(function () {
-    socket.send('Sent a message 4seconds after connection!');
-  }, 4000);
 });
 
 

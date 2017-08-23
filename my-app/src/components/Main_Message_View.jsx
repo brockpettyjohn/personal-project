@@ -14,7 +14,8 @@ class MainMessageView extends Component {
 
     this.state = {
       messages: [],
-      user: ''
+      //user: '',
+      //id: ''
     }
 
     this.createMessage = this.createMessage.bind(this);
@@ -59,26 +60,59 @@ class MainMessageView extends Component {
   //creatMessage is being passed as prop into AddMessages which is later being used in the Message bar jsx
   createMessage(messageText) {
     // this.setState( { messages: [...this.state.messages, { text: messageText, complete: false } ] })
-    // console.log( this.state )
-    socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user })
+    // console.log(this.props.params.id)
+    socket.emit('chat_message', { message_body: messageText, sender_id: this.state.user, conversation_id: 12 })
   }
 
   getMessages() {
-    axios.get('http://localhost:3030/messages')
-      .then(resp => {
-        this.setState({
-          message: resp.data
+    //axios.get('http://localhost:3030/messages') //this is the original working version
+    // const id = (this.props.match.params.id)
+    // console.log(!this.props.match ? )
+    if (!this.props.match) {
+      axios.get('http://localhost:3030/messages')
+        .then(resp => {
+          console.log(resp.data)
+          this.setState({
+            messages: resp.data,
+          })
+          console.log(this.state.messages)
         })
-      })
-      .catch(err => {
-        console.log('why no messages ? ', err.message)
-      })
+        .catch(err => {
+          console.log('why no messages ? ', err.message)
+        })
+
+    } else {
+      const id = (this.props.match.params.id)
+
+      axios.get(`http://localhost:3030/messages/${id}`)
+        .then(resp => {
+          console.log(resp.data)
+          this.setState({
+            messages: resp.data,
+          })
+          console.log(this.state.messages)
+        })
+        .catch(err => {
+          console.log('why no messages ? ', err.message)
+        })
+    }
+
+    // axios.get(`http://localhost:3030/messages/${id}`)
+    //   .then(resp => {
+    //     console.log(resp.data)
+    //     this.setState({
+    //       messages: resp.data,
+    //     })
+    //     console.log(this.state.messages)
+    //   })
+    //   .catch(err => {
+    //     console.log('why no messages ? ', err.message)
+    //   })
   }
 
   render() {
-    console.log(this.state.messages)
-    const message = this.state.messages
-      .filter(message => message)
+    //console.log(this.state.messages)
+    const message = this.state.messages.filter(message => message)
 
       .map((message, index) => (
         <div className='message-output' key={index}>
@@ -104,9 +138,7 @@ class MainMessageView extends Component {
           {message}
         </div>
         <div className='message-footer'>
-
           <AddMessage createMessage={this.createMessage} />
-
         </div>
       </div>
     );

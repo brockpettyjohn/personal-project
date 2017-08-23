@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import HeaderSideBar from './Header_Sidebar.jsx'
-import AllUnreads from './All_Unreads.jsx'
-import AllThreads from './All_Threads.jsx'
+// import AllUnreads from './All_Unreads.jsx'
+// import AllThreads from './All_Threads.jsx'
 import Channels from './Channels.jsx'
 import DirectMessages from './Direct_Messages.jsx'
 import TestModal from './Test_Modal.jsx'
@@ -20,8 +20,8 @@ class SideBarMenu extends Component {
                         </div>
                     <div className='sidebar-words'>
                         <ul>
-                            <li><AllUnreads /></li>
-                            <li><AllThreads /></li>
+                            <li>All Unreads</li>
+                            <li>All Threads</li>
                             <li><h2><Channels /></h2></li>
                             <li><h2><DirectMessages /></h2></li>
                         </ul>

@@ -49,8 +49,15 @@
 
 #new-channels{
   font-size: 16px;
+  color: #555459;
 
 }
+
+#new-channels:link{
+  color: #555459;
+
+}
+
 
 
 .direct-message-add span{
@@ -126,6 +133,20 @@
   line-height: 2em;
   font-size: 16px;
   margin-left: -20px;
+  color: gray;
+}
+
+.channelName {
+    color: rgba(255, 255, 255, 0.28);
+    transition: .3s;
+    font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+    font-size: 12px;
+}
+
+.channelName:hover {
+    letter-spacing: 1px;
+    color: white;
+    transition: .3s;
 }
 
 .sidebar-words ul {
@@ -185,7 +206,9 @@ h2{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: -749px;  
+  /*align-items: flex-end;*/
+  top: 0;
+  /*margin-top: -750px;  */
 }
 
 .message-display-header{
@@ -201,7 +224,7 @@ color: white;
   justify-content: space-around;
   height: 61px;
   font-family: Slack-Lato,appleLogo,sans-serif;
-
+  background-color: white;
 }
 
 .header-base span1{
@@ -228,6 +251,7 @@ color: white;
   width: 360px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
 
