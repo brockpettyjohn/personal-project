@@ -68,6 +68,9 @@ class MainMessageView extends Component {
     //axios.get('http://localhost:3030/messages') //this is the original working version
     // const id = (this.props.match.params.id)
     // console.log(!this.props.match ? )
+
+
+
     if (!this.props.match) {
       axios.get('http://localhost:3030/messages')
         .then(resp => {
@@ -80,7 +83,6 @@ class MainMessageView extends Component {
         .catch(err => {
           console.log('why no messages ? ', err.message)
         })
-
     } else {
       const id = (this.props.match.params.id)
 
@@ -96,6 +98,18 @@ class MainMessageView extends Component {
           console.log('why no messages ? ', err.message)
         })
     }
+
+    //   .then(resp => {
+    //     console.log(resp.data)
+    //     this.setState({
+    //       messages: resp.data,
+    //     })
+    //     console.log(this.state.messages)
+    //   })
+    //   .catch(err => {
+    //     console.log('why no messages ? ', err.message)
+    //   })
+    // }
 
     // axios.get(`http://localhost:3030/messages/${id}`)
     //   .then(resp => {

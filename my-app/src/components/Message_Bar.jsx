@@ -36,7 +36,6 @@ import React, { Component } from "react";
                             }
                         }
                     }
-                    
                 />
                 {/*<button onKeyPress={ () => this.handleKeyPress() }>Send</button>*/}
                 <i className="fa fa-smile-o" aria-hidden="true"></i>
