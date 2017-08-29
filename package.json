@@ -10,8 +10,10 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "massive": "^3.0.0",
+    "node-env-file": "^0.1.8",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "react-router-dom": "^4.1.1",

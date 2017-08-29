@@ -50,8 +50,8 @@ passport.use(new LocalStrategy(
 
 // massive(config.url).then(db => {
 //   app.set('db', db);
-
-massive(process.env.URL).then(db => {
+console.log(process.env)
+massive(process.env.DB).then(db => {
   app.set('db', db);
 })
   .catch(err => {
