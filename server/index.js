@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
@@ -50,7 +51,7 @@ passport.use(new LocalStrategy(
 // massive(config.url).then(db => {
 //   app.set('db', db);
 
-massive(config.url).then(db => {
+massive(process.env.URL).then(db => {
   app.set('db', db);
 })
   .catch(err => {
