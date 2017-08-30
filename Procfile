@@ -1,1 +1,1 @@
-web: run.sh
+web: node server/index.js
