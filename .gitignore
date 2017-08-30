@@ -1,3 +1,4 @@
 node_modules
 my-app/node-modules
 config.js
+.env
