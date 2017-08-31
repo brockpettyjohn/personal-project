@@ -50,6 +50,7 @@ passport.use(new LocalStrategy(
 
 // massive(config.url).then(db => {
 //   app.set('db', db);
+console.log(process.env)
 massive(process.env.DB).then(db => {
   app.set('db', db);
 })
@@ -116,6 +117,6 @@ io.on('connection', socket => {
 
 
 //had server.listen before and changed it to see if the variable definition was the problem
-server.listen(3030, () => {
+server.listen(process.env.PORT, () => {
   console.log('magic listening on 3030')
 })
