@@ -118,7 +118,7 @@ io.on('connection', socket => {
 
 //had server.listen before and changed it to see if the variable definition was the problem
 server.listen({
-  port: process.env.PORT,
+  port: process.env.PORT || 3030,
   host: process.env.HOST
 }, () => {
   console.log('magic listening on 3030')
