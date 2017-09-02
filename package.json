@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,6 +28,6 @@
   "bugs": {
     "url": "https://github.com/brockpettyjohn/personal-project/issues"
   },
-  "homepage": "https://github.com/brockpettyjohn/personal-project#readme",
+  "homepage": "http://dry-gorge-21775.herokuapp.com",
   "description": ""
 }

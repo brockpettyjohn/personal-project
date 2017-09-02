@@ -50,13 +50,18 @@ passport.use(new LocalStrategy(
 
 // massive(config.url).then(db => {
 //   app.set('db', db);
-console.log(process.env)
+
 massive(process.env.DB).then(db => {
+  
   app.set('db', db);
 })
   .catch(err => {
     console.log('\n\n DB connect error >> ', err.message)
   });
+
+app.get('/', (req, res) => {
+  res.send('../build/index.html')
+})
 
 app.post('/login',
   passport.authenticate('local', { successRedirect: '/message_page',
@@ -82,7 +87,7 @@ app.post('/user_login/', controller.userLogin)
 
 app.get('/messages/:id', controller.getMessagesByConvoId )
 
-
+console.log('\n\n app db >> ', app.get('db'))
 
 // app.use(express.static(__dirname + '/my-app/build'))
 
@@ -104,7 +109,7 @@ io.on('connection', socket => {
       .catch(err => {
         socket.emit('error', err.message)
       })
-    console.log(data)
+    console.log('\n\n what is this>> ', data)
 
   })
 
@@ -119,7 +124,7 @@ io.on('connection', socket => {
 //had server.listen before and changed it to see if the variable definition was the problem
 server.listen({
   port: process.env.PORT || 3030,
-  host: process.env.HOST
+  host: process.env.HOST || 'localhost'
 }, () => {
-  console.log('magic listening on 3030')
+  console.log(`magic listening on ${process.env.HOST} :: ${process.env.PORT}`)
 })

@@ -1,5 +1,3 @@
-const app = require('./index.js')
-
 module.exports = {
     createUser: (req, res) => {
         var user = [
@@ -125,12 +123,13 @@ module.exports = {
     },
 
     createMessage: (app, messageData) => {
-        console.log(app)
+        
         const db = app.get('db')
+        console.log('\n\n db >> ', db.create_message, '\n\n')
         const message = messageData.message_body;
         const sender_id = messageData.sender_id;
         const convoId = messageData.conversation_id;
-        console.log(message);
+        console.log('\n\n message inbound :: ', message, '\n\n');
         return db.create_message([message, sender_id, convoId ]).then(resp => {
             return resp
             console.log(resp)
