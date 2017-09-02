@@ -51,6 +51,7 @@ passport.use(new LocalStrategy(
 // massive(config.url).then(db => {
 //   app.set('db', db);
 
+
 massive(process.env.DB).then(db => {
   
   app.set('db', db);
@@ -121,7 +122,8 @@ io.on('connection', socket => {
 
 
 
-//had server.listen before and changed it to see if the variable definition was the problem
+//had server.listen before and changed it to see if the variable definition was the problemcopn
+console.log('\n\n env >> ', process.env.HOST)
 server.listen({
   port: process.env.PORT || 3030,
   host: process.env.HOST || 'localhost'
