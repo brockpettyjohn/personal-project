@@ -8,7 +8,7 @@ import io from 'socket.io-client'
 import Slack1 from './../slack-1.svg'
 // import env from '../.env'
 
-const socket = io('http://localhost:3030')
+const socket = io('https://dry-gorge-21775.herokuapp.com/')
 class MainMessageView extends Component {
   constructor(props) {
     super(props);
