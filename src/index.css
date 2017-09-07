@@ -218,6 +218,7 @@ color: white;
 .header-base{
   font-weight: 900;
   font-size: 18px;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -247,7 +248,7 @@ color: white;
 }
 
 .header-search-block{
-  width: 360px;
+  width: 40%;
   display: flex;
   align-items: center;
   background-color: white;
@@ -282,8 +283,8 @@ color: white;
 
 .incoming-messages{
   padding-bottom: 60px;
-  /*height: 100vh;*/
   width: 88vw;
+  overflow-y: scroll;
 }
 
 .message-footer{
@@ -295,6 +296,7 @@ color: white;
   position: fixed;
   display: flex;
   justify-content: space-around;
+  background-color: white;
 }
 
 .add-message{
