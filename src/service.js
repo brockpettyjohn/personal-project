@@ -4,7 +4,7 @@ import React from 'react'
 
 
 export function getMessagesById(id){
-    axios.get('http://localhost:3030/messages/' + id)
+    axios.get('https://dry-gorge-21775.herokuapp.com/messages/' + id)
       .then(resp => {
           console.log(resp)
         // this.setState({

@@ -29,7 +29,7 @@ class Channels extends Component {
   }
   componentDidMount(){
     if (!this.state.channels.length){
-      axios.get('http://localhost:3030/channels').then(resp =>{
+      axios.get('https://dry-gorge-21775.herokuapp.com/channels').then(resp =>{
         this.setState({
           channels: resp.data
         })
@@ -52,8 +52,8 @@ class Channels extends Component {
         e.preventDefault()
         axios({
             method: 'post',
-            url: 'http://localhost:3030/channels',
-            data: {room_name: this.state.newChannel, id: this} // room_name is the what I called it on the b/e and this.state.newChannel is what we want to go into it and its an object
+            url: 'https://dry-gorge-21775.herokuapp.com/channels',
+            data: {room_name: this.state.newChannel} // room_name is the what I called it on the b/e and this.state.newChannel is what we want to go into it and its an object
         }).then(res => {
             console.log("Create Channel Response: ", res)
         }).catch(err => {
@@ -73,7 +73,6 @@ class Channels extends Component {
         return (
 
             <Link to ={`/messages/${channel.id}`} style={{textDecoration:'none'}}><div className="channelName" key={i}>
-=======
             {/*<Link to ={`/messages/${channel.id}`} style={{textDecoration:'none'}}><div key={i}>
 >>>>>>> f1ea98d5f3a17707ab31a2a27d396efcbb6862f1*/}
               {channel.room_name}

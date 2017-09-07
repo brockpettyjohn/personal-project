@@ -18,6 +18,8 @@ channels = [];
 
 app.use(bodyParser.json());
 app.use(cors());
+// This will serve the content of the build folder so that they are avaiable.
+app.use(express.static('./build'));
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -53,16 +55,13 @@ passport.use(new LocalStrategy(
 
 
 massive(process.env.DB).then(db => {
-  console.log(process.env.HOST)
   app.set('db', db);
 })
   .catch(err => {
     console.log('\n\n DB connect error >> ', err.message)
   });
 
-app.get('/', (req, res) => {
-  res.send('../build/index.html')
-})
+
 
 app.post('/login',
   passport.authenticate('local', { successRedirect: '/message_page',
@@ -88,7 +87,7 @@ app.post('/user_login/', controller.userLogin)
 
 app.get('/messages/:id', controller.getMessagesByConvoId )
 
-console.log('\n\n app db >> ', app.set('db'))
+// console.log('\n\n app db >> ', app.set('db'))
 
 // app.use(express.static(__dirname + '/my-app/build'))
 
@@ -124,6 +123,15 @@ io.on('connection', socket => {
 
 //had server.listen before and changed it to see if the variable definition was the problem
 console.log('\n\n env >> ', process.env.HOST)
+
+const path = require('path');
+app.get('/*', (req, res) => {
+  // This will send back the index.html file for the react app back whenever we make a request
+  // that we haven't explicitly set to return something else. 
+  // This is to handle the broswerHistory instead of HashHistory in React
+  res.sendFile(path.join(__dirname,'/build/index.html'));
+})
+
 server.listen({
   port: process.env.PORT || 3030,
   // host: process.env.HOST || 'localhost'

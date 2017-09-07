@@ -8,7 +8,7 @@ import io from 'socket.io-client'
 import Slack1 from './../slack-1.svg'
 // import env from '../.env'
 
-const socket = io('https://localhost:3030')
+const socket = io('https://dry-gorge-21775.herokuapp.com/')
 class MainMessageView extends Component {
   constructor(props) {
     super(props);
@@ -73,7 +73,7 @@ class MainMessageView extends Component {
 
 
     if (!this.props.match) {
-      axios.get('http://localhost:3030/messages')
+      axios.get('https://dry-gorge-21775.herokuapp.com/messages')
         .then(resp => {
           console.log(resp.data)
           this.setState({
@@ -87,7 +87,7 @@ class MainMessageView extends Component {
     } else {
       const id = (this.props.match.params.id)
 
-      axios.get(`http://localhost:3030/messages/${id}`)
+      axios.get(`https://dry-gorge-21775.herokuapp.com/messages/${id}`)
         .then(resp => {
           console.log(resp.data)
           this.setState({

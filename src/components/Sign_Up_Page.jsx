@@ -38,7 +38,7 @@ class SignUpPage extends Component {
 
         axios({
             method: 'post',
-            url: 'http://localhost:3030/user',
+            url: 'https://dry-gorge-21775.herokuapp.com/user',
             data: {
                 first_name: this.state.newFirstName,
                 last_name: this.state.newLastName,
