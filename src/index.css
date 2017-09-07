@@ -190,7 +190,7 @@ h2{
 
 .main-message-view{
   height: 100vh;
-  width: calc(100vw - 240px);
+  width: calc(100vw - 221px);
   border: solid black 1px;
   overflow-y: hidden;
   display: flex;
@@ -201,7 +201,7 @@ h2{
 
 .message-header{
   height: 61px;
-  width: calc(100vw - 240px);
+  width: calc(100vw - 224px);
   border: solid #bbbdbf 1px;
   position: fixed;
   display: flex;
