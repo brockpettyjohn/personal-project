@@ -7,7 +7,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, { serveClient: false });
 const controller = require('./chatController.js');
-const config = require('./config.js')
+// const config = require('./config.js')
 const passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
