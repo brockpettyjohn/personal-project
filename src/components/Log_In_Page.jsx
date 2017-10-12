@@ -29,6 +29,7 @@ class LogInPage extends Component {
                 <div className='login-box-wrapper'>
                     <div className='login-box'>
                         <h1>Sign in to Slack</h1>
+                    <div>Login is disabled just type your name and click "continue"" to walk through app</div>
                         <span>Enter your email address and password</span>
                         <input name='email' placeholder='you@example.com' />
                         <input name='password' placeholder='password' type='password' />
