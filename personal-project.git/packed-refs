@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled 
+b99292e041c46bcad1984aafe249760f2173166b refs/heads/WIP-shits-broke
+64c7cae46fddd1c66d9062800a229130081aa4bc refs/heads/dallin
+7eb421ca3c29fa9367330221197ab0aa6d2877fb refs/heads/gh-pages
+826709444313707569e2a9f3113abc103180dbe2 refs/heads/master
+7eb421ca3c29fa9367330221197ab0aa6d2877fb refs/heads/plan-b
+44acaf64482326e0a5f392fc8ca0e211e340b1fc refs/heads/render-stuff
+e27f339b491262ecb4fa1d7248a7be3e7103f423 refs/heads/working-branch
