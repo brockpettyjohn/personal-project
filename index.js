@@ -7,9 +7,6 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, { serveClient: false });
 const controller = require('./chatController.js');
-// const config = require('./config.js')
-const passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
 
 
 users = [];
@@ -20,38 +17,7 @@ app.use(bodyParser.json());
 app.use(cors());
 // This will serve the content of the build folder so that they are avaiable.
 app.use(express.static('./build'));
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
 
-
-// massive({
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'brockpettyjohn'
-// }).then (db =>{
-//   app.set('db', db);
-// });
-
-// massive(
-//   config.database
-// ).then (db =>{
-//   app.set('db', db);
-// });
-
-// massive(config.url).then(db => {
-//   app.set('db', db);
 
 
 massive(process.env.DB).then(db => {
@@ -62,12 +28,6 @@ massive(process.env.DB).then(db => {
   });
 
 
-
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/message_page',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-);
 
 app.post('/user', controller.createUser)
 
@@ -133,8 +93,8 @@ app.get('/*', (req, res) => {
 })
 
 server.listen({
-  port: process.env.PORT || 3030,
+  port: process.env.HOST || 3030,
   // host: process.env.HOST || 'localhost'
 }, () => {
-  console.log(`magic listening on ${process.env.HOST} :: ${process.env.PORT}`)
+  console.log(`magic listening on ${process.env.LOCAL} :: ${process.env.PORT}`)
 })

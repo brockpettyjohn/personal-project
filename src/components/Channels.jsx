@@ -73,8 +73,6 @@ class Channels extends Component {
         return (
 
             <Link to ={`/messages/${channel.id}`} style={{textDecoration:'none'}}><div className="channelName" key={i}>
-            {/*<Link to ={`/messages/${channel.id}`} style={{textDecoration:'none'}}><div key={i}>
->>>>>>> f1ea98d5f3a17707ab31a2a27d396efcbb6862f1*/}
               {channel.room_name}
             </div>
             </Link>
